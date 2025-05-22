@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-text-color: #374151;
+  }
+
+  .dark {
+    --tw-text-color: #f8fafc;
+  }
+
+  body {
+    @apply text-[var(--tw-text-color)];
+  }
+

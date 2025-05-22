@@ -1,0 +1,4 @@
+Cambiar el sistema a ENG!!!
+agregar funcionalidad al boton finalizar compra
+agregar mas graficos
+agregar funcionalidad de estado de usuario
