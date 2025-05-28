@@ -56,7 +56,7 @@ class Cart extends Component
             'message' => 'Order confirmation completed',
             'type' => 'success',
         ]);
-        return redirect()->route('dashboard');
+        return;
     }
 
     public function remove($id)

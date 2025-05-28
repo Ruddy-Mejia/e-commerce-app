@@ -23,8 +23,9 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('12345678'),
             'address' => $this->faker->streetAddress,
             'gender' => fake()->randomElement(['male', 'female']),
-            'status'=> 1,
+            'status'=> fake()->randomElement([1, 2]),
             'phone'=> $this->faker->phoneNumber,
+            'created_at' => $this->faker->dateTimeBetween('-100 days', now())
         ];
     }
 }

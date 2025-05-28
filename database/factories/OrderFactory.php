@@ -24,7 +24,7 @@ class OrderFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()?->id ?? User::factory(),
-            'status' => $this->faker->randomElement(['pending', 'processed', 'completed']),
+            'status' => $this->faker->randomElement(['pending', 'completed']),
             'created_at' => Carbon::now()->subMonths(rand(0, 11)),
             'items' => json_encode([
                 ["id" => 26, "price" => 0.99, "title" => "Green Chili Pepper", "quantity" => 1, "thumbnail" => "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp"],

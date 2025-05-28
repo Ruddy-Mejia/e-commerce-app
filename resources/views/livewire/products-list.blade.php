@@ -1,5 +1,5 @@
 <div>
-    <div x-data="{ open: false }" class="fixed bottom-5 right-5">
+    <div x-data="{ open: false }" class="fixed bottom-5 right-5 z-50">
         <button @click="open = !open" class="bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
@@ -9,7 +9,7 @@
         </button>
 
         <div x-show="open" @click.outside="open = false"
-            class="mt-2 w-80 bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+         class="fixed bottom-20 right-5 w-80 bg-white dark:bg-gray-800 rounded-lg shadow p-4 z-50">
             @livewire('cart')
         </div>
     </div>
@@ -81,12 +81,12 @@
             </div>
 
 
-            <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="pt-4 gap-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                 @forelse ($products as $product)
                     {{-- Product card start --}}
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
                         <img src="{{ $product['thumbnail'] }}" alt="{{ $product['title'] }}"
-                            class="w-full h-40 object-cover rounded">
+                            class="w-full h-40 object-contain rounded">
                         <h3 class="mt-2 text-lg font-semibold text-gray-800 dark:text-gray-100">
                             {{ $product['title'] }}
                         </h3>
@@ -117,7 +117,7 @@
             </div>
         </div>
     </div>
-    <div class="p-6">
+    <div class="p-6 relative z-10">
         {{ $products->links() }}
     </div>
     <livewire:toast-message />

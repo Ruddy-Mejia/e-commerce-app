@@ -15,17 +15,29 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    @auth
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endauth
                     @if ($role === 'admin')
                         <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
                             {{ __('Users') }}
                         </x-nav-link>
                     @endif
-                    <x-nav-link :href="route('products-list')" :active="request()->routeIs('products-list')">
+                    @if ($role === 'seller')
+                        <x-nav-link :href="route('sales')" :active="request()->routeIs('sales')">
+                            {{ __('Sales') }}
+                        </x-nav-link>
+                    @endif
+                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
                         {{ __('Products') }}
                     </x-nav-link>
+                    @auth
+                        <x-nav-link :href="route('orders-history')" :active="request()->routeIs('orders-history')">
+                            {{ __('My orders') }}
+                        </x-nav-link>
+                    @endauth
                 </div>
             </div>
             <div class="pt-2">
@@ -110,13 +122,25 @@
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-responsive-nav-link>
+            @endauth
+            @if ($role === 'admin')
                 <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
                     {{ __('Users') }}
                 </x-responsive-nav-link>
-            @endauth
-            <x-responsive-nav-link :href="route('products-list')" :active="request()->routeIs('products-list')">
+            @endif
+            @if ($role === 'seller')
+                <x-responsive-nav-link :href="route('sales')" :active="request()->routeIs('sales')">
+                    {{ __('Sales') }}
+                </x-responsive-nav-link>
+            @endif
+            <x-responsive-nav-link :href="route('products')" :active="request()->routeIs('products')">
                 {{ __('Products') }}
             </x-responsive-nav-link>
+            @auth
+                <x-responsive-nav-link :href="route('orders-history')" :active="request()->routeIs('orders-history')">
+                    {{ __('My orders') }}
+                </x-responsive-nav-link>
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->

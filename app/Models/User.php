@@ -28,18 +28,4 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    public function isAdmin()
-    {
-        return $this->role === 'admin';
-    }
-
-    public function isSeller()
-    {
-        return $this->role === 'seller';
-    }
-
-    public function isUser()
-    {
-        return $this->role === 'user';
-    }
 }

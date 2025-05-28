@@ -37,45 +37,44 @@
                             @click.away="open = false" x-show="open">
                             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
                                 <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 text-center mb-4">
-                                    Información del Usuario
+                                    {{ __('User info')}}
                                 </h2>
                                 <div class="space-y-4">
                                     <div class="flex items-center justify-between">
-                                        <span class="font-medium text-gray-700 dark:text-gray-300">Nombre:</span>
+                                        <span class="font-medium text-gray-700 dark:text-gray-300">{{ __('Name:')}}</span>
                                         <span class="text-gray-900 dark:text-gray-100">{{ $userToView->name }}</span>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <span class="font-medium text-gray-700 dark:text-gray-300">Apellido:</span>
+                                        <span class="font-medium text-gray-700 dark:text-gray-300">{{ __('Lastname:')}}</span>
                                         <span class="text-gray-900 dark:text-gray-100">{{ $userToView->lastname }}</span>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <span class="font-medium text-gray-700 dark:text-gray-300">Correo
-                                            electrónico:</span>
+                                        <span class="font-medium text-gray-700 dark:text-gray-300">{{ __('Email:')}}</span>
                                         <span class="text-gray-900 dark:text-gray-100">{{ $userToView->email }}</span>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <span class="font-medium text-gray-700 dark:text-gray-300">Dirección:</span>
+                                        <span class="font-medium text-gray-700 dark:text-gray-300">{{ __('Address:')}}</span>
                                         <span class="text-gray-900 dark:text-gray-100">{{ $userToView->address }}</span>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <span class="font-medium text-gray-700 dark:text-gray-300">Teléfono:</span>
+                                        <span class="font-medium text-gray-700 dark:text-gray-300">{{ __('Phone:')}}</span>
                                         <span class="text-gray-900 dark:text-gray-100">{{ $userToView->phone }}</span>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <span class="font-medium text-gray-700 dark:text-gray-300">Rol:</span>
+                                        <span class="font-medium text-gray-700 dark:text-gray-300">{{ __('Role:')}}</span>
                                         <span
                                             class="text-gray-900 dark:text-gray-100">{{ Str::ucfirst($userToView->role) }}</span>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <span class="font-medium text-gray-700 dark:text-gray-300">Género:</span>
+                                        <span class="font-medium text-gray-700 dark:text-gray-300">{{ __('Gender:')}}</span>
                                         <span
-                                            class="text-gray-900 dark:text-gray-100">{{ $userToView->gender = 'male' ? 'Masculino' : 'Femenino' }}</span>
+                                            class="text-gray-900 dark:text-gray-100">{{ $userToView->gender = 'male' ? 'Male' : 'Female' }}</span>
                                     </div>
                                 </div>
                                 <div class="mt-6 flex justify-end">
                                     <button wire:click="toogleModal"
                                         class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-200 hover:bg-gray-300 rounded-md dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600">
-                                        Cerrar
+                                        {{ __('Close')}}
                                     </button>
                                 </div>
                             </div>
@@ -92,12 +91,12 @@
                                     <div class="mt-4 space-x-2 flex justify-center ">
                                         <button wire:click="deleteUser({{ $deleteId }})" type="button"
                                             class=" flex text-black dark:text-white hover:bg-indigo-950 bg-indigo-600 px-4 py-2 justify-center items-center rounded-md">
-                                            Eliminar
+                                            {{ __('Delete')}}
                                         </button>
                                         <br>
                                         <button wire:click="toogleModal" type="button"
                                             class="bg-cyan-950 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-gray-900">
-                                            Cerrar
+                                            {{ __('Close')}}
                                         </button>
                                     </div>
                                 </div>
@@ -109,10 +108,10 @@
                         <form wire:submit.prevent='updateUser'
                             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
                             <div class="bg-slate-50 dark:bg-slate-800 rounded-lg p-6 lg:w-1/3 sm:w-11/12 md:w-10/12">
-                                <h2 class="text-xl font-bold mb-4">Añadir un usuario</h2>
+                                <h2 class="text-xl font-bold mb-4">{{ __('New user')}}</h2>
 
                                 <div class="py-2">
-                                    <p class="text-sm">Nombres</p>
+                                    <p class="text-sm">{{ __('Name')}}</p>
                                     <input type="text" wire:model="name"
                                         class="rounded-xl focus:ring-0 p-3 border-0 bg-slate-200 dark:bg-slate-700 w-full"
                                         placeholder="John">
@@ -121,7 +120,7 @@
                                     @enderror
                                 </div>
                                 <div class="py-2">
-                                    <p class="text-sm">Apellidos</p>
+                                    <p class="text-sm">{{ __('Lastname')}}</p>
                                     <input type="text" wire:model="lastname"
                                         class="rounded-xl focus:ring-0 p-3 border-0 bg-slate-200 dark:bg-slate-700 w-full"
                                         placeholder="Doe">
@@ -130,7 +129,7 @@
                                     @enderror
                                 </div>
                                 <div class="py-2">
-                                    <p class="text-sm">Email</p>
+                                    <p class="text-sm">{{ __('Email')}}</p>
                                     <input type="text" wire:model="email"
                                         class="rounded-xl focus:ring-0 p-3 border-0 bg-slate-200 dark:bg-slate-700 w-full"
                                         placeholder="example@example.com">
@@ -139,7 +138,7 @@
                                     @enderror
                                 </div>
                                 <div class="py-2">
-                                    <p class="text-sm">Dirección</p>
+                                    <p class="text-sm">{{ __('Address')}}</p>
                                     <input type="text" wire:model="address"
                                         class="rounded-xl focus:ring-0 p-3 border-0 bg-slate-200 dark:bg-slate-700 w-full"
                                         placeholder="Avenida La Paz 412">
@@ -148,7 +147,7 @@
                                     @enderror
                                 </div>
                                 <div class="py-2">
-                                    <p class="text-sm">Teléfono</p>
+                                    <p class="text-sm">{{ __('Phone')}}</p>
                                     <input type="text" wire:model="phone"
                                         class="rounded-xl focus:ring-0 p-3 border-0 bg-slate-200 dark:bg-slate-700 w-full"
                                         placeholder="+56997914187">
@@ -157,21 +156,20 @@
                                     @enderror
                                 </div>
                                 <div class="pt-4 flex space-x-4 items-baseline">
-                                    <p class="text-sm">Género</p>
+                                    <p class="text-sm">{{ __('Gender')}}</p>
                                     <select wire:model="gender" id="gender"
                                         class="rounded-xl focus:ring-0 p-3 border-0 bg-slate-200 dark:bg-slate-700 w-1/2">
-                                        <option value="" disabled selected>Seleccione el
-                                            género</option>
+                                        <option value="" disabled selected>{{ __('Select gender')}}</option>
                                         @if ($gender == 'male')
-                                            <option value="male" selected>Masculino</option>
-                                            <option value="female">Femenino</option>
+                                            <option value="male" selected>{{ __('Male')}}</option>
+                                            <option value="female">{{ __('Female')}}</option>
                                         @else
-                                            <option value="male">Masculino</option>
-                                            <option value="female" selected>Femenino</option>
+                                            <option value="male">{{ __('Male')}}</option>
+                                            <option value="female" selected>{{ __('Female')}}</option>
                                         @endif
                                     </select>
 
-                                    <p class="text-sm">Rol</p>
+                                    <p class="text-sm">{{ __('Role')}}</p>
                                     <select wire:model="role" id="role"
                                         class="rounded-xl focus:ring-0 p-3 border-0 bg-slate-200 dark:bg-slate-700 w-1/2">
                                         <option value="" selected>{{ __('Select role') }}</option>
@@ -188,7 +186,7 @@
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                                 <div class="py-2">
-                                    <p class="text-sm pb-1">Foto</p>
+                                    <p class="text-sm pb-1">{{ __('Photo')}}</p>
                                     <div class="flex items-center space-x-6">
                                         <div class="shrink-0">
                                             <img id="preview_img" class="h-16 w-16 object-cover rounded-md"
@@ -196,7 +194,7 @@
                                             <!-- src="{{ $photo_path ? $photo_path->temporaryUrl() : 'https://avatar.iran.liara.run/public/boy?username=Ash' }}" /> -->
                                         </div>
                                         <label class="block">
-                                            <span class="sr-only">Choose profile photo</span>
+                                            <span class="sr-only">{{ __(' Choose profile photo')}}</span>
                                             <input type="file" wire:model="photo_path"
                                                 class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-slate-700 file:text-slate-50 hover:file:bg-violet-100 hover:file:text-slate-700" />
                                         </label>
@@ -209,12 +207,12 @@
                                 <div class="mt-4 space-x-2 flex justify-end">
                                     <button type="button" wire:click="updateUser({{ $id }})"
                                         class="bg-indigo-700 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-indigo-900">
-                                        Guardar
+                                        {{ __('Save')}}
                                     </button>
                                     <br>
                                     <button type="button" wire:click="toogleModal"
                                         class="bg-cyan-950 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-gray-900">
-                                        Cerrar
+                                        {{ __('Close')}}
                                     </button>
                                 </div>
                             </div>
@@ -225,7 +223,7 @@
         </div>
 
         @if ($cards)
-            <div class="grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 gap-4 pt-4" wire:poll.1s>
+            <div class="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-4 pt-4" wire:poll.1s>
                 @foreach ($users as $user)
                     <div>
                         <!-- Card start -->
@@ -238,11 +236,11 @@
                                         src="{{ $user->photo_path ? asset('storage/' . $user->photo_path) : 'https://i.pravatar.cc/300?u=' . $user->id }}">
                                     @if ($user->status == 1)
                                         <span
-                                            class="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-900">Activo
+                                            class="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-900">{{ __('Active')}}
                                         </span>
                                     @else
                                         <span
-                                            class="rounded-full bg-red-200 px-3 py-1 text-xs font-semibold text-red-900">Inactivo
+                                            class="rounded-full bg-red-200 px-3 py-1 text-xs font-semibold text-red-900">{{ __('Inactive')}}
                                         </span>
                                     @endif
                                     <div class="py-2">
@@ -303,17 +301,17 @@
                 {{ $users->links() }}
             </div>
         @else
-            <div class="p-4">
+            <div class="pt-4">
                 <div class="overflow-y-hidden rounded-lg">
                     <div class="overflow-x-auto">
                         <table class="w-full">
                             <thead>
                                 <tr class="bg-indigo-700 text-left text-sm text-gray-100">
-                                    <th class="p-5">Nombre completo</th>
-                                    <th class="p-5">Rol</th>
-                                    <th class="p-5">Email</th>
-                                    <th class="p-5">Estado</th>
-                                    <th class="p-5">Acciones</th>
+                                    <th class="p-5">{{ __('Full name')}}</th>
+                                    <th class="p-5">{{ __('Role')}}</th>
+                                    <th class="p-5">{{ __('Email')}}</th>
+                                    <th class="p-5">{{ __('Status')}}</th>
+                                    <th class="p-5">{{ __('Actions')}}</th>
                                 </tr>
                             </thead>
                             <tbody class="dark:text-slate-100">
@@ -345,11 +343,11 @@
                                         <td class="bg-slate-50 dark:bg-gray-500 p-5 text-sm">
                                             @if ($user->status == 1)
                                                 <span
-                                                    class="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-900">Activo
+                                                    class="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-900">{{ __('Active')}}
                                                 </span>
                                             @else
                                                 <span
-                                                    class="rounded-full bg-red-200 px-3 py-1 text-xs font-semibold text-red-900">Inactivo
+                                                    class="rounded-full bg-red-200 px-3 py-1 text-xs font-semibold text-red-900">{{ __('Inactive')}}
                                                 </span>
                                             @endif
                                         </td>
