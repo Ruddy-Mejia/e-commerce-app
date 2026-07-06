@@ -22,7 +22,7 @@ class Dashboard extends Component
 
     public function mount()
     {
-        $this->loadNatureImage();
+        // $this->loadNatureImage();
         $this->mostSold();
         $this->monthlySales();
         $this->getAdvice();
@@ -58,20 +58,20 @@ class Dashboard extends Component
         }
     }
 
-    public function loadNatureImage()
-    {
-        $response = Http::withoutVerifying()->withHeaders([
-            'Authorization' => 'vsWERpbvwHhKOXmJ6n04wHFsL6P3dr6tO8nWMGRktxop4ts0mKBEBZJQ',
-        ])->get('https://api.pexels.com/v1/search', [
-            'query' => 'nature wallpapers',
-            'per_page' => 20,
-            'page' => rand(1, 50),
-        ]);
+    // public function loadNatureImage()
+    // {
+    //     $response = Http::withoutVerifying()->withHeaders([
+    //         'Authorization' => 'vsWERpbvwHhKOXmJ6n04wHFsL6P3dr6tO8nWMGRktxop4ts0mKBEBZJQ',
+    //     ])->get('https://api.pexels.com/v1/search', [
+    //         'query' => 'nature wallpapers',
+    //         'per_page' => 20,
+    //         'page' => rand(1, 50),
+    //     ]);
 
-        $photos = $response->json('photos');
-        $random = $photos[array_rand($photos)];
-        $this->imageUrl = $random['src']['large'] ?? null;
-    }
+    //     $photos = $response->json('photos');
+    //     $random = $photos[array_rand($photos)];
+    //     $this->imageUrl = $random['src']['large'] ?? null;
+    // }
 
     private function getJoke()
     {
